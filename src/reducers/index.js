@@ -1,8 +1,12 @@
 import { combineReducers } from 'redux'
 import drawer from './drawer'
+import add from './add'
+import { reducer as formReducer } from 'redux-form'
 
 const mainReducer = combineReducers({
-    drawer
+    form: formReducer,
+    drawer,
+    add
 })
 
 export default mainReducer

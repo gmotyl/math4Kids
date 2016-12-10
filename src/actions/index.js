@@ -8,6 +8,8 @@
  * Action types
  */
 export const TOGGLE_DRAWER = 'TOGGLE_DRAWER'
+export const SUBMIT_ADD = 'SUBMIT_ADD'
+export const NEW_ADD = 'NEW_ADD'
 
 /**
  * Action Creators
@@ -15,5 +17,18 @@ export const TOGGLE_DRAWER = 'TOGGLE_DRAWER'
 export const toggleDrawer = () => {
     return {
         type: TOGGLE_DRAWER
+    }
+}
+
+export const submitAdd = (addForm) => {
+    return {
+        type: SUBMIT_ADD,
+        addForm: addForm
+    }
+}
+
+export const newAdd = (addForm) => {
+    return {
+        type: NEW_ADD
     }
 }
