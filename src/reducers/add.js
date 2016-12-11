@@ -9,8 +9,8 @@ const add = (state = { a: 1, b: 1, submited: false, correct: false, result: ""},
     switch (action.type) {
         case actions.NEW_ADD:
             return {
-                a: Math.floor(Math.random() * 11),
-                b: Math.floor(Math.random() * 11),
+                a: Math.floor(Math.random() * 15) + 1,
+                b: Math.floor(Math.random() * 15) + 1,
                 submited: false,
                 result: undefined,
                 correct: undefined,
