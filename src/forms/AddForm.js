@@ -14,7 +14,7 @@ const mapDispatchToProps = (dispatch, state) => {
         },
         onNew: () => {
             dispatch(fetchGiphy('spongebob+happy'))
-            dispatch(reset('addForm'));
+            dispatch(reset('BasicForm'));
             dispatch(actions.newAdd())
         }
     }
