@@ -10,6 +10,9 @@
 export const TOGGLE_DRAWER = 'TOGGLE_DRAWER'
 export const SUBMIT_ADD = 'SUBMIT_ADD'
 export const NEW_ADD = 'NEW_ADD'
+export const REQUEST_GIPHY = 'REQUEST_GIPHY'
+export const FETCH_GIPHY = 'FETCH_GIPHY'
+export const FETCH_GIPHY_SUCCESS = 'FETCH_GIPHY_SUCCESS'
 
 /**
  * Action Creators
@@ -27,8 +30,22 @@ export const submitAdd = (addForm) => {
     }
 }
 
-export const newAdd = (addForm) => {
+export const newAdd = () => {
     return {
         type: NEW_ADD
+    }
+}
+
+export const requestGiphy = (tag) => {
+    return {
+        type: FETCH_GIPHY,
+        tag: tag
+    }
+}
+
+export const fetchGiphySuccess = (imageSrc) => {
+    return {
+        type: FETCH_GIPHY_SUCCESS,
+        imageSrc: imageSrc
     }
 }

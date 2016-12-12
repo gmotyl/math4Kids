@@ -1,25 +1,15 @@
 import { connect } from 'react-redux'
 import React from 'react';
-import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import { Field, reduxForm, reset } from 'redux-form'
-import { submitAdd, newAdd } from '../actions'
+import * as actions from '../actions'
+import { fetchGiphy } from '../actions/fetchGiphy'
 import Add from '../components/math/Add'
 import Giphy from '../components/app/Giphy'
+import RenderTextField from '../components/app/RenderTextField'
 import { Flex, Item } from 'react-flex';
 import 'react-flex/index.css';
 import ReplayIcon from 'material-ui/svg-icons/av/replay';
-
-const renderTextField = ({ input, label, type, meta: { touched, error }, errorText, ...custom }) => (
-    <TextField hintText={label}
-               floatingLabelText={label}
-               type={type}
-               errorText={touched && errorText}
-               autoFocus
-        {...input}
-        {...custom}
-        />
-)
 
 const mapStateToProps = (state) => {
     return {
@@ -31,11 +21,12 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         onSubmit: data  => {
-            dispatch(submitAdd(data))
+            dispatch(actions.submitAdd(data))
         },
         onNew: () => {
+            dispatch(fetchGiphy('spongebob+happy'))
             dispatch(reset('addForm'));
-            dispatch(newAdd())
+            dispatch(actions.newAdd())
         }
     }
 }
@@ -46,6 +37,7 @@ const style = {
 
 let AddForm = props => {
     const { handleSubmit, pristine, reset, submitting } = props
+
     return (
         <div>
             { props.correct ?
@@ -70,7 +62,7 @@ let AddForm = props => {
                         <Flex row alignItems="center">
                             <Add/>&nbsp;
                             <div>
-                                <Field name="result" component={renderTextField} label="" errorText={props.errorText}
+                                <Field name="result" component={RenderTextField} label="" errorText={props.errorText}
                                        type="number"/>
                             </div>
                         </Flex>
