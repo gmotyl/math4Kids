@@ -2,19 +2,20 @@ import React, { Component, PropTypes } from 'react';
 import { newAdd } from '../../actions'
 import { connect } from 'react-redux'
 
-class Add extends Component {
+class QuestionBasic extends Component {
     render() {
         return (
             <div className="task">
-                { this.props.a } + { this.props.b } =
+                { this.props.a } { this.props.operator } { this.props.b } =
             </div>
         )
     }
 }
 const mapStateToProps = (state) => {
     return {
-        a: state.add.a,
-        b: state.add.b
+        a: state.math.a,
+        b: state.math.b,
+        operator: state.math.operator
     }
 }
 
@@ -26,11 +27,11 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-Add.propTypes = {
+QuestionBasic.propTypes = {
     onAdd: PropTypes.func.isRequired
 }
 
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(Add)
+)(QuestionBasic)

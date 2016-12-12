@@ -10,7 +10,7 @@ class Drawer extends React.Component {
         return (
             <MUIDrawer open={ this.props.isOpen } docked={ false } onRequestChange={ this.props.onDrawerToggle }>
                 <AppBar title="Math4Kids" onLeftIconButtonTouchTap={ this.props.onDrawerToggle }/>
-                <MenuItem>Dodawanie</MenuItem>
+                <MenuItem>Basic math</MenuItem>
             </MUIDrawer>
         );
     }

@@ -8,7 +8,7 @@
  * Action types
  */
 export const TOGGLE_DRAWER = 'TOGGLE_DRAWER'
-export const SUBMIT_ADD = 'SUBMIT_ADD'
+export const SUBMIT_RESULT = 'SUBMIT_RESULT'
 export const NEW_ADD = 'NEW_ADD'
 export const REQUEST_GIPHY = 'REQUEST_GIPHY'
 export const FETCH_GIPHY = 'FETCH_GIPHY'
@@ -23,10 +23,10 @@ export const toggleDrawer = () => {
     }
 }
 
-export const submitAdd = (addForm) => {
+export const submitResult = (form) => {
     return {
-        type: SUBMIT_ADD,
-        addForm: addForm
+        type: SUBMIT_RESULT,
+        form: form
     }
 }
 
