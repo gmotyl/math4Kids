@@ -8,6 +8,7 @@ import Add from '../components/math/Add'
 import Giphy from '../components/app/Giphy'
 import { Flex, Item } from 'react-flex';
 import 'react-flex/index.css';
+import ReplayIcon from 'material-ui/svg-icons/av/replay';
 
 const renderTextField = ({ input, label, type, meta: { touched, error }, errorText, ...custom }) => (
     <TextField hintText={label}
@@ -51,23 +52,31 @@ let AddForm = props => {
                 <div>
                     <Giphy />
                     <form onSubmit={handleSubmit(props.onNew)}>
-                        <RaisedButton label="--->>>" primary={true} type="submit" style={style} fullWidth={true} autoFocus/>
+                        <div style={{textAlign: "center"}}>
+                            <RaisedButton
+                                icon={<ReplayIcon/>}
+                                primary={true}
+                                type="submit"
+                                style={style}
+                                autoFocus
+                            />
+                         </div>
                     </form>
                     <p><a href="http://giphy.com/gifs/happy-spongebob-squarepants-patrick-TdfyKrN7HGTIY">via GIPHY</a></p>
                 </div>
                 :
-                <form onSubmit={handleSubmit(props.onSubmit)}>
-                    <Flex row alignItems="center">
-                        <Add/>&nbsp;
-                        <div>
-                            <Field name="result" component={renderTextField} label="" errorText={props.errorText}
-                                   type="number"/>
-                        </div>
-                    </Flex>
-                    <div>
-                    <RaisedButton label="OK" primary={true} type="submit" style={style} fullWidth={true}/>
-                    </div>
-                </form>
+                <div>
+                    <form onSubmit={handleSubmit(props.onSubmit)}>
+                        <Flex row alignItems="center">
+                            <Add/>&nbsp;
+                            <div>
+                                <Field name="result" component={renderTextField} label="" errorText={props.errorText}
+                                       type="number"/>
+                            </div>
+                        </Flex>
+                        <RaisedButton label="OK" primary={true} type="submit" style={style} fullWidth={true}/>
+                    </form>
+                </div>
             }
         </div>
     );
