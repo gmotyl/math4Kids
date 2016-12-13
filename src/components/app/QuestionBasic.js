@@ -1,5 +1,4 @@
-import React, { Component, PropTypes } from 'react';
-import { newAdd } from '../../actions'
+import React, { Component } from 'react';
 import { connect } from 'react-redux'
 
 class QuestionBasic extends Component {
@@ -19,19 +18,7 @@ const mapStateToProps = (state) => {
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        onAdd: () => {
-            dispatch(newAdd())
-        },
-    }
-}
-
-QuestionBasic.propTypes = {
-    onAdd: PropTypes.func.isRequired
-}
-
 export default connect(
     mapStateToProps,
-    mapDispatchToProps
+    null
 )(QuestionBasic)

@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
-import React from 'react';
+import React, { PropTypes } from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
-import { reduxForm, Field } from 'redux-form'
+import { Field } from 'redux-form'
 import QuestionBasic from '../components/app/QuestionBasic'
 import Giphy from '../components/app/Giphy'
 import RenderTextField from '../components/app/RenderTextField'
@@ -20,48 +20,53 @@ const style = {
     margin: 5,
 };
 
-let BasicForm = props => {
-    const { handleSubmit, pristine, reset, submitting } = props
-    return (
-        <div>
-            { props.correct ?
-                <div>
-                    <Giphy />
-                    <form onSubmit={handleSubmit(props.onNew)}>
-                        <div style={{textAlign: "center"}}>
-                            <RaisedButton
-                                icon={<ReplayIcon/>}
-                                primary={true}
-                                type="submit"
-                                style={style}
-                                autoFocus
-                            />
-                         </div>
-                    </form>
-                </div>
-                :
-                <div>
-                    <form onSubmit={handleSubmit(props.onSubmit)}>
-                        <Flex row alignItems="center">
-                            <QuestionBasic/>&nbsp;
-                            <div>
-                                <Field name="result" component={RenderTextField} label="" errorText={props.errorText}
-                                       type="number"/>
+class BasicForm extends React.Component {
+    render() {
+        const {handleSubmit, pristine, reset, submitting} = this.props
+        return (
+            <div>
+                { this.props.correct ?
+                    <div>
+                        <Giphy />
+                        <form onSubmit={handleSubmit(this.props.onNew)}>
+                            <div style={{textAlign: "center"}}>
+                                <RaisedButton
+                                    icon={<ReplayIcon/>}
+                                    primary={true}
+                                    type="submit"
+                                    style={style}
+                                    autoFocus
+                                />
                             </div>
-                        </Flex>
-                        <div style={{textAlign: "center"}}>
-                            <RaisedButton label="OK" primary={true} type="submit" style={style} />
-                        </div>
-                    </form>
-                </div>
-            }
-        </div>
-    );
+                        </form>
+                    </div>
+                    :
+                    <div>
+                        <form onSubmit={handleSubmit(this.props.onSubmit)}>
+                            <Flex row alignItems="center">
+                                <QuestionBasic/>&nbsp;
+                                <div>
+                                    <Field name="result" component={RenderTextField} label=""
+                                           errorText={this.props.errorText}
+                                           type="number"/>
+                                </div>
+                            </Flex>
+                            <div style={{textAlign: "center"}}>
+                                <RaisedButton label="OK" primary={true} type="submit" style={style}/>
+                            </div>
+                        </form>
+                    </div>
+                }
+            </div>
+        );
+    }
 }
 
-// decorate AddForm with reduxForm
-BasicForm = reduxForm({
-    form: 'BasicForm'
-})(BasicForm)
+BasicForm.propTypes = {
+    errorText: PropTypes.string,
+    correct: PropTypes.bool,
+    onSubmit: PropTypes.func.isRequired,
+    onNew: PropTypes.func.isRequired
+}
 
 export default BasicForm;

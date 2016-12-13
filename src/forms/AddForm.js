@@ -5,6 +5,7 @@ import { mapStateToProps } from './BasicForm';
 import { reset } from 'redux-form'
 import * as actions from '../actions'
 import { fetchGiphy } from '../actions/fetchGiphy'
+import { reduxForm } from 'redux-form'
 
 
 const mapDispatchToProps = (dispatch, state) => {
@@ -14,12 +15,19 @@ const mapDispatchToProps = (dispatch, state) => {
         },
         onNew: () => {
             dispatch(fetchGiphy('spongebob+happy'))
-            dispatch(reset('BasicForm'));
+            dispatch(reset('AddForm'));
             dispatch(actions.newAdd())
         }
     }
 }
 
-let AddForm = BasicForm
+class AddForm extends BasicForm {
+}
+
+
+// decorate AddForm with reduxForm
+AddForm = reduxForm({
+    form: 'AddForm'
+})(AddForm)
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddForm);
