@@ -7,13 +7,13 @@ const mapStateToProps = (state) => {
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = () => {
     return {
     }
 }
 
 class Giphy extends Component {
-    render(dispatch) {
+    render() {
         return (
             <div>
                 <div style={{ textAlign: "center", marginTop: "5px" }}>

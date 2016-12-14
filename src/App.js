@@ -8,6 +8,7 @@ import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import mainReducer from './reducers/index'
 import { fetchGiphy } from './actions/fetchGiphy'
+import * as actions from './actions'
 
 class App extends Component {
     constructor() {
@@ -24,6 +25,8 @@ class App extends Component {
         )
 
         store.dispatch(fetchGiphy('spongebob+happy'));
+        store.dispatch(actions.newAdd());
+        store.dispatch(actions.newMultiply());
 
         return (
             <Provider store={store}>

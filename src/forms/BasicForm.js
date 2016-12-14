@@ -17,7 +17,7 @@ export const mapStateToProps = (state) => {
 }
 
 const style = {
-    margin: 5,
+    margin: 5
 };
 
 class BasicForm extends React.Component {

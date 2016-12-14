@@ -10,6 +10,7 @@
 export const TOGGLE_DRAWER = 'TOGGLE_DRAWER'
 export const SUBMIT_RESULT = 'SUBMIT_RESULT'
 export const NEW_ADD = 'NEW_ADD'
+export const NEW_MULTIPLY = 'NEW_MULTIPLY'
 export const REQUEST_GIPHY = 'REQUEST_GIPHY'
 export const FETCH_GIPHY = 'FETCH_GIPHY'
 export const FETCH_GIPHY_SUCCESS = 'FETCH_GIPHY_SUCCESS'
@@ -33,6 +34,12 @@ export const submitResult = (form) => {
 export const newAdd = () => {
     return {
         type: NEW_ADD
+    }
+}
+
+export const newMultiply = () => {
+    return {
+        type: NEW_MULTIPLY
     }
 }
 

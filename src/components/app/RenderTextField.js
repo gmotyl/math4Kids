@@ -7,6 +7,7 @@ const RenderTextField = ({ input, label, type, meta: { touched, error }, errorTe
                type={type}
                errorText={touched && errorText}
                autoFocus
+               style={{width: "80px", fontSize: "40px"}}
         {...input}
         {...custom}
         />

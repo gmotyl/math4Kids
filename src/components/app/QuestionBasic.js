@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 class QuestionBasic extends Component {
     render() {
         return (
-            <div className="task">
+            <div className="task" style={{ fontSize: '40px', padding: '15px'}}>
                 { this.props.a } { this.props.operator } { this.props.b } =
             </div>
         )
