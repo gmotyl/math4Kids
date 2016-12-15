@@ -51,8 +51,8 @@ const math = (state = initialState, action) => {
             }
 
         case actions.NEW_MULTIPLY:
-            let multi_a = Math.floor(Math.random() * 9) + 2
-            let multi_b = Math.floor(Math.random() * (9 - multi_a)) + 2
+            let multi_a = Math.floor(Math.random() * 8) + 2
+            let multi_b = Math.floor(Math.random() * 8) + 2
 
             return {
                 a: multi_a,
