@@ -14,7 +14,7 @@ const mapDispatchToProps = (dispatch, state) => {
             dispatch(actions.submitResult(data))
         },
         onNew: () => {
-            dispatch(fetchGiphy('success+funny'))
+            dispatch(fetchGiphy('spongebob'))
             dispatch(reset('SubstractForm'));
             dispatch(actions.newSubstract())
         }

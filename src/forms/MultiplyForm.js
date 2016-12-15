@@ -14,7 +14,7 @@ const mapDispatchToProps = (dispatch, state) => {
             dispatch(actions.submitResult(data))
         },
         onNew: () => {
-            dispatch(fetchGiphy('funny'))
+            dispatch(fetchGiphy('spongebob'))
             dispatch(reset('MultiplyForm'));
             dispatch(actions.newMultiply())
         }

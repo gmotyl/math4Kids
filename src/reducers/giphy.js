@@ -17,6 +17,9 @@ const giphy = (state = defaultState, action) => {
             return Object.assign({}, state, { done: false})
 
         case actions.FETCH_GIPHY_SUCCESS:
+            var img = new Image();
+            img.src = action.imageSrc;
+
             return Object.assign({}, state, {
                 done: true,
                 imageSrc: action.imageSrc
