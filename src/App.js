@@ -27,6 +27,7 @@ class App extends Component {
         store.dispatch(fetchGiphy('spongebob+happy'));
         store.dispatch(actions.newAdd());
         store.dispatch(actions.newMultiply());
+        store.dispatch(actions.newSubstract());
 
         return (
             <Provider store={store}>

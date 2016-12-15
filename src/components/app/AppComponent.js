@@ -4,6 +4,7 @@ import { toggleDrawer } from '../../actions'
 import { connect } from 'react-redux'
 import Drawer from './Drawer'
 import AddForm from '../../forms/AddForm'
+import SubstractForm from '../../forms/SubstractForm'
 import MultiplyForm from '../../forms/MultiplyForm'
 
 class AppComponent extends Component {
@@ -15,7 +16,7 @@ class AppComponent extends Component {
                     onLeftIconButtonTouchTap={ this.props.onDrawerToggle }
                     iconClassNameRight="muidocs-icon-navigation-expand-more"
                 />
-                <MultiplyForm/>
+                <SubstractForm/>
                 <Drawer/>
             </div>
         )

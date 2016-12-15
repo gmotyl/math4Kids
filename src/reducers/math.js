@@ -6,7 +6,8 @@ const initialState = {
     correct: false,
     submited: false,
     result: 2,
-    operator: '+'
+    operator: '+',
+    count: 0
 };
 /**
  * @param state
@@ -28,9 +29,30 @@ const math = (state = initialState, action) => {
                 operator : '+'
             }
 
+        case actions.NEW_SUBSTRACT:
+            let x
+            let y
+            let x_y = 0
+
+            while (x_y < 2) {
+                x = Math.floor(Math.random() * 29) + 2
+                y = Math.floor(Math.random() * 29) + 2
+                x_y = x - y
+            }
+
+            return {
+                a: x,
+                b: y,
+                result: x_y,
+                submited: false,
+                correct: undefined,
+                operator : '-',
+                count: ++state.count
+            }
+
         case actions.NEW_MULTIPLY:
             let multi_a = Math.floor(Math.random() * 9) + 2
-            let multi_b = Math.floor(Math.random() * 9) + 2
+            let multi_b = Math.floor(Math.random() * (9 - multi_a)) + 2
 
             return {
                 a: multi_a,
