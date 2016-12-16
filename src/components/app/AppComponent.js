@@ -3,6 +3,8 @@ import React, { Component, PropTypes } from 'react';
 import { toggleDrawer } from '../../actions'
 import { connect } from 'react-redux'
 import Drawer from './Drawer'
+import RightMenu from './RightMenu'
+import Options from '../../dialogs/Options'
 
 
 class AppComponent extends Component {
@@ -12,9 +14,10 @@ class AppComponent extends Component {
                 <AppBar
                     title="Math4Kids"
                     onLeftIconButtonTouchTap={ this.props.onDrawerToggle }
-                    iconClassNameRight="muidocs-icon-navigation-expand-more"
+                    iconElementRight={<RightMenu/>}
                 />
                 <Drawer/>
+                <Options/>
                 {this.props.children}
             </div>
         )
