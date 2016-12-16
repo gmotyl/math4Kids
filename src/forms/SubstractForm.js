@@ -15,19 +15,19 @@ const mapDispatchToProps = (dispatch, state) => {
         },
         onNew: () => {
             dispatch(fetchGiphy('spongebob'))
-            dispatch(reset('AddForm'));
-            dispatch(actions.newAdd())
+            dispatch(reset('SubstractForm'));
+            dispatch(actions.newSubstract())
         }
     }
 }
 
-class AddForm extends BasicForm {
+class SubstractForm extends BasicForm {
 }
 
 
 // decorate AddForm with reduxForm
-AddForm = reduxForm({
-    form: 'AddForm'
-})(AddForm)
+SubstractForm = reduxForm({
+    form: 'SubstractForm'
+})(SubstractForm)
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddForm);
+export default connect(mapStateToProps, mapDispatchToProps)(SubstractForm);

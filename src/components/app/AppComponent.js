@@ -3,7 +3,7 @@ import React, { Component, PropTypes } from 'react';
 import { toggleDrawer } from '../../actions'
 import { connect } from 'react-redux'
 import Drawer from './Drawer'
-import AddForm from '../../forms/AddForm'
+
 
 class AppComponent extends Component {
     render() {
@@ -14,8 +14,8 @@ class AppComponent extends Component {
                     onLeftIconButtonTouchTap={ this.props.onDrawerToggle }
                     iconClassNameRight="muidocs-icon-navigation-expand-more"
                 />
-                <AddForm/>
                 <Drawer/>
+                {this.props.children}
             </div>
         )
     }
