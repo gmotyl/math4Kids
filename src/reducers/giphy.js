@@ -13,18 +13,16 @@ const defaultState = {
  */
 const giphy = (state = defaultState, action) => {
     switch (action.type) {
-        case actions.REQUEST_GIPHY:
-            return Object.assign({}, state, { done: false})
-
-        case actions.FETCH_GIPHY_SUCCESS:
-            var img = new Image();
-            img.src = action.imageSrc;
-
-            return Object.assign({}, state, {
+        case actions.REQUEST_GIPHY: {
+            return { ...state,  done: false }
+        }
+        case actions.FETCH_GIPHY_SUCCESS: {
+            return {
+                ...state,
                 done: true,
                 imageSrc: action.imageSrc
-            })
-
+            }
+        }
         default:
             return state
     }

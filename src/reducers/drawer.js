@@ -7,10 +7,9 @@ import { TOGGLE_DRAWER } from '../actions/index'
  */
 const drawer = (state = { open: false }, action) => {
     switch (action.type) {
-        case TOGGLE_DRAWER:
-            return Object.assign({}, state, {
-                open: !state.open
-            })
+        case TOGGLE_DRAWER: {
+            return { ...state, open: !state.open }
+        }
 
         default:
             return state

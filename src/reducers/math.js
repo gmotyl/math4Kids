@@ -17,8 +17,8 @@ const initialState = {
 const math = (state = initialState, action) => {
     switch (action.type) {
         case actions.NEW_ADD:
-            let a = Math.floor(Math.random() * 15) + 1
-            let b = Math.floor(Math.random() * (30 - a)) + 1
+            const a = Math.floor(Math.random() * 15) + 1
+            const b = Math.floor(Math.random() * (30 - a)) + 1
 
             return {
                 a: a,
@@ -51,8 +51,8 @@ const math = (state = initialState, action) => {
             }
 
         case actions.NEW_MULTIPLY:
-            let multi_a = Math.floor(Math.random() * 8) + 2
-            let multi_b = Math.floor(Math.random() * 8) + 2
+            const multi_a = Math.floor(Math.random() * 8) + 2
+            const multi_b = Math.floor(Math.random() * 8) + 2
 
             return {
                 a: multi_a,
@@ -64,9 +64,9 @@ const math = (state = initialState, action) => {
             }
 
         case actions.SUBMIT_RESULT:
-            let result = parseInt(action.form.result);
-            let correct = state.result === result
-            let newState = {
+            const result = parseInt(action.form.result);
+            const correct = state.result === result
+            const newState = {
                 submited: true,
                 correct: correct,
                 error: correct ? undefined : "Uppss.."
