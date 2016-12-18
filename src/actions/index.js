@@ -17,6 +17,7 @@ export const FETCH_GIPHY = 'FETCH_GIPHY'
 export const FETCH_GIPHY_SUCCESS = 'FETCH_GIPHY_SUCCESS'
 export const SHOW_SETTINGS_DIALOG = 'SHOW_SETTINGS_DIALOG'
 export const HIDE_SETTINGS_DIALOG = 'HIDE_SETTINGS_DIALOG'
+export const CHANGE_MAX_RESULT = 'CHANGE_MAX_RESULT'
 
 /**
  * Action Creators
@@ -75,5 +76,12 @@ export const showSettingsDialog = () => {
 export const hideSettingsDialog = () => {
     return {
         type: HIDE_SETTINGS_DIALOG
+    }
+}
+
+export const changeMaxResult = (value) => {
+    return {
+        type: CHANGE_MAX_RESULT,
+        maxResult: value
     }
 }

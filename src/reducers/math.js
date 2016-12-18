@@ -15,7 +15,6 @@ function getRandomInt(min, max) {
     return Math.round(Math.random() * (max - min + 1)) + min;
 }
 
-
 /**
  * @param state
  * @param action
@@ -68,7 +67,7 @@ const math = (state = initialState, action) => {
             }
 
         case actions.NEW_MULTIPLY:
-            generateRandomNumbers(function(a, b) { return a * b }, 10, 10)
+            generateRandomNumbers(function(a, b) { return a * b }, 9, 9)
 
             return {
                 ...state,
@@ -88,6 +87,12 @@ const math = (state = initialState, action) => {
                 submited: true,
                 correct: correct,
                 error: correct ? undefined : "Uppss.."
+            }
+
+        case actions.CHANGE_MAX_RESULT:
+            return {
+                ...state,
+                maxResult : action.maxResult
             }
 
         default:

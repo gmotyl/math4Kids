@@ -1,7 +1,8 @@
+import * as actions from '../actions'
 import { connect } from 'react-redux'
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
-import * as actions from '../actions'
+import MaxResultSlider from '../components/app/MaxResultSlider'
 import React from 'react';
 
 const mapStateToProps = (state) => {
@@ -22,8 +23,8 @@ class Settings extends React.Component {
     render() {
         const dialogActions = [
             <FlatButton
-                label="Cancel"
-                primary={false}
+                label="OK"
+                primary={true}
                 onTouchTap={this.props.handleClose}
             />
         ];
@@ -37,7 +38,7 @@ class Settings extends React.Component {
                     open={ this.props.isOpen }
                     onRequestClose={this.props.handleClose}
                 >
-                    Options
+                    <MaxResultSlider/>
                 </Dialog>
             </div>
         );
