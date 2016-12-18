@@ -7,43 +7,60 @@ const initialState = {
     submited: false,
     result: 2,
     operator: '+',
-    count: 0
+    count: 0,
+    maxResult : 30
 };
+
+function getRandomInt(min, max) {
+    return Math.round(Math.random() * (max - min + 1)) + min;
+}
+
+
 /**
  * @param state
  * @param action
  * @returns {*}
  */
 const math = (state = initialState, action) => {
+    var a
+    var b
+    var result = 0
+
+    function generateRandomNumbers(resultCallback, maxA = undefined, maxB = undefined) {
+        do {
+            a = getRandomInt(2, maxA ? maxA : state.maxResult)
+            b = getRandomInt(2, maxB ? maxB : state.maxResult)
+            result = resultCallback(a, b)
+
+        } while (result > state.maxResult || result < 1)
+    }
+
     switch (action.type) {
         case actions.NEW_ADD:
-            const a = Math.floor(Math.random() * 15) + 1
-            const b = Math.floor(Math.random() * (30 - a)) + 1
+            generateRandomNumbers(function(a, b) {
+                return a + b
+            })
 
             return {
-                a: a,
-                b: b,
-                result: a + b,
-                submited: false,
-                correct: undefined,
-                operator : '+'
+                    ...state,
+                    a: a,
+                    b: b,
+                    result: result,
+                    submited: false,
+                    correct: undefined,
+                    operator : '+'
             }
 
         case actions.NEW_SUBSTRACT:
-            let x
-            let y
-            let x_y = 0
-
-            while (x_y < 2) {
-                x = Math.floor(Math.random() * 29) + 2
-                y = Math.floor(Math.random() * 29) + 2
-                x_y = x - y
-            }
+            generateRandomNumbers(function(a, b) {
+                return a - b
+            })
 
             return {
-                a: x,
-                b: y,
-                result: x_y,
+                ...state,
+                a: a,
+                b: b,
+                result: result,
                 submited: false,
                 correct: undefined,
                 operator : '-',
@@ -51,28 +68,27 @@ const math = (state = initialState, action) => {
             }
 
         case actions.NEW_MULTIPLY:
-            const multi_a = Math.floor(Math.random() * 8) + 2
-            const multi_b = Math.floor(Math.random() * 8) + 2
+            generateRandomNumbers(function(a, b) { return a * b }, 10, 10)
 
             return {
-                a: multi_a,
-                b: multi_b,
-                result: multi_a * multi_b,
+                ...state,
+                a: a,
+                b: b,
+                result: result,
                 submited: false,
                 correct: undefined,
                 operator : '*'
             }
 
         case actions.SUBMIT_RESULT:
-            const result = parseInt(action.form.result);
-            const correct = state.result === result
-            const newState = {
+            const correct = state.result === parseInt(action.form.result)
+
+            return {
+                ...state,
                 submited: true,
                 correct: correct,
                 error: correct ? undefined : "Uppss.."
             }
-
-            return Object.assign({}, state, newState)
 
         default:
             return state
