@@ -5,17 +5,19 @@ import * as actions from '../actions/index'
  * @param action
  * @returns {*}
  */
-const dialogs = (state = { optionsDialog : { open: false } }, action) => {
+const dialogs = (state = { settingsDialog : { open: false } }, action) => {
     switch (action.type) {
-        case actions.SHOW_OPTIONS_DIALOG:
-            return Object.assign({}, state, {
-                optionsDialog: { open: true }
-            })
+        case actions.SHOW_SETTINGS_DIALOG:
+            return {
+                ...state,
+                settingsDialog: { open: true }
+            }
 
-        case actions.HIDE_OPTIONS_DIALOG:
-            return Object.assign({}, state, {
-                optionsDialog: { open: false }
-            })
+        case actions.HIDE_SETTINGS_DIALOG:
+            return {
+                ...state,
+                settingsDialog: { open: false }
+            }
 
         default:
             return state

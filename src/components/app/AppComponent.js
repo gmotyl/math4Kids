@@ -1,11 +1,11 @@
+import * as actions from '../../actions'
+import ActionSettings from 'material-ui/svg-icons/action/settings';
 import AppBar from 'material-ui/AppBar';
-import React, { Component, PropTypes } from 'react';
-import { toggleDrawer } from '../../actions'
 import { connect } from 'react-redux'
 import Drawer from './Drawer'
-import RightMenu from './RightMenu'
-import Options from '../../dialogs/Options'
-
+import React, { Component, PropTypes } from 'react';
+import Settings from '../../dialogs/Settings'
+import IconButton from 'material-ui/IconButton';
 
 class AppComponent extends Component {
     render() {
@@ -14,10 +14,11 @@ class AppComponent extends Component {
                 <AppBar
                     title="Math4Kids"
                     onLeftIconButtonTouchTap={ this.props.onDrawerToggle }
-                    iconElementRight={<RightMenu/>}
+                    onRightIconButtonTouchTap={ this.props.onSettingsTouchTap }
+                    iconElementRight={<IconButton><ActionSettings /></IconButton>}
                 />
                 <Drawer/>
-                <Options/>
+                <Settings/>
                 {this.props.children}
             </div>
         )
@@ -32,8 +33,11 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         onDrawerToggle: () => {
-            dispatch(toggleDrawer())
+            dispatch(actions.toggleDrawer())
         },
+        onSettingsTouchTap: () => {
+            dispatch(actions.showSettingsDialog())
+        }
     }
 }
 
