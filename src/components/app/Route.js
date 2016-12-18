@@ -1,14 +1,14 @@
+import * as actions from '../../actions'
 import AppComponent from './AppComponent'
 import AddForm from '../../forms/AddForm'
+import { createStore, applyMiddleware } from 'redux'
+import { fetchGiphy } from '../../actions/fetchGiphy'
+import mainReducer from '../../reducers/index'
 import MultiplyForm from '../../forms/MultiplyForm'
+import { Provider } from 'react-redux'
 import React, { Component } from 'react';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router'
 import SubstractForm from '../../forms/SubstractForm'
-import { createStore, applyMiddleware } from 'redux'
-import mainReducer from '../../reducers/index'
-import { Provider } from 'react-redux'
-import { fetchGiphy } from '../../actions/fetchGiphy'
-import * as actions from '../../actions'
 import thunkMiddleware from 'redux-thunk'
 
 export default class Roote extends Component {

@@ -15,6 +15,8 @@ export const NEW_MULTIPLY = 'NEW_MULTIPLY'
 export const REQUEST_GIPHY = 'REQUEST_GIPHY'
 export const FETCH_GIPHY = 'FETCH_GIPHY'
 export const FETCH_GIPHY_SUCCESS = 'FETCH_GIPHY_SUCCESS'
+export const SHOW_SETTINGS_DIALOG = 'SHOW_SETTINGS_DIALOG'
+export const HIDE_SETTINGS_DIALOG = 'HIDE_SETTINGS_DIALOG'
 
 /**
  * Action Creators
@@ -61,5 +63,17 @@ export const fetchGiphySuccess = (imageSrc) => {
     return {
         type: FETCH_GIPHY_SUCCESS,
         imageSrc: imageSrc
+    }
+}
+
+export const showSettingsDialog = () => {
+    return {
+        type: SHOW_SETTINGS_DIALOG
+    }
+}
+
+export const hideSettingsDialog = () => {
+    return {
+        type: HIDE_SETTINGS_DIALOG
     }
 }

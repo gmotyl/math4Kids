@@ -1,13 +1,13 @@
 import { connect } from 'react-redux'
-import React, { PropTypes } from 'react';
-import RaisedButton from 'material-ui/RaisedButton';
 import { Field } from 'redux-form'
-import QuestionBasic from '../components/app/QuestionBasic'
-import Giphy from '../components/app/Giphy'
-import RenderTextField from '../components/app/RenderTextField'
 import { Flex, Item } from 'react-flex';
+import Giphy from '../components/app/Giphy'
+import RaisedButton from 'material-ui/RaisedButton';
+import React, { PropTypes } from 'react';
 import 'react-flex/index.css';
+import RenderTextField from '../components/app/RenderTextField'
 import ReplayIcon from 'material-ui/svg-icons/av/replay';
+import QuestionBasic from '../components/app/QuestionBasic'
 
 export const mapStateToProps = (state) => {
     return {
