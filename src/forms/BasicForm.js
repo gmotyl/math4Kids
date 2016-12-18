@@ -41,7 +41,8 @@ class BasicForm extends React.Component {
                         </form>
                     </div>
                     :
-                    <div>
+                    <div style={{ width: '100%' }}>
+                    <div style={{ display: 'table', margin: '0 auto'}}>
                         <form onSubmit={handleSubmit(this.props.onSubmit)}>
                             <Flex row alignItems="center">
                                 <QuestionBasic/>&nbsp;
@@ -55,6 +56,7 @@ class BasicForm extends React.Component {
                                 <RaisedButton label="OK" primary={true} type="submit" style={style}/>
                             </div>
                         </form>
+                    </div>
                     </div>
                 }
             </div>

@@ -17,6 +17,9 @@ const giphy = (state = defaultState, action) => {
             return { ...state,  done: false }
         }
         case actions.FETCH_GIPHY_SUCCESS: {
+            const img = new Image();
+            img.src = action.imageSrc;
+
             return {
                 ...state,
                 done: true,
