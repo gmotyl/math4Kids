@@ -8,7 +8,9 @@ const initialState = {
     result: 2,
     operator: '+',
     count: 0,
-    maxResult : 30
+    maxResult: 30,
+    doneCount: 0,
+    errorCount: 0
 };
 
 function getRandomInt(min, max) {
@@ -86,7 +88,9 @@ const math = (state = initialState, action) => {
                 ...state,
                 submited: true,
                 correct: correct,
-                error: correct ? undefined : "Uppss.."
+                error: correct ? undefined : "Uppss..",
+                errorCount: correct ? state.errorCount : ++state.errorCount,
+                doneCount: correct ? ++state.doneCount : state.doneCount,
             }
 
         case actions.CHANGE_MAX_RESULT:

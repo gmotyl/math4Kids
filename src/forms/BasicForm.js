@@ -7,6 +7,7 @@ import React, { PropTypes } from 'react';
 import 'react-flex/index.css';
 import RenderTextField from '../components/app/RenderTextField'
 import ReplayIcon from 'material-ui/svg-icons/av/replay';
+import Statistics from '../components/app/Statistics'
 import QuestionBasic from '../components/app/QuestionBasic'
 
 export const mapStateToProps = (state) => {
@@ -42,21 +43,24 @@ class BasicForm extends React.Component {
                     </div>
                     :
                     <div style={{ width: '100%' }}>
-                    <div style={{ display: 'table', margin: '0 auto'}}>
-                        <form onSubmit={handleSubmit(this.props.onSubmit)}>
-                            <Flex row alignItems="center">
-                                <QuestionBasic/>&nbsp;
-                                <div>
-                                    <Field name="result" component={RenderTextField} label=""
-                                           errorText={this.props.errorText}
-                                           type="number"/>
+                        <div style={{ display: 'table', margin: '0 auto'}}>
+                            <form onSubmit={handleSubmit(this.props.onSubmit)}>
+                                <Flex row alignItems="center">
+                                    <QuestionBasic/>&nbsp;
+                                    <div>
+                                        <Field name="result" component={RenderTextField} label=""
+                                               errorText={this.props.errorText}
+                                               type="number"/>
+                                    </div>
+                                </Flex>
+                                <div style={{textAlign: "center"}}>
+                                    <RaisedButton label="OK" primary={true} type="submit" style={style}/>
                                 </div>
-                            </Flex>
+                            </form>
                             <div style={{textAlign: "center"}}>
-                                <RaisedButton label="OK" primary={true} type="submit" style={style}/>
+                                <Statistics/>
                             </div>
-                        </form>
-                    </div>
+                        </div>
                     </div>
                 }
             </div>
