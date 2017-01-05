@@ -1,6 +1,7 @@
 import * as actions from '../../actions'
 import AppComponent from './AppComponent'
 import AddForm from '../../forms/AddForm'
+import { composeWithDevTools } from 'redux-devtools-extension';
 import { createStore, applyMiddleware } from 'redux'
 import { fetchGiphy } from '../../actions/fetchGiphy'
 import mainReducer from '../../reducers/index'
@@ -13,12 +14,10 @@ import thunkMiddleware from 'redux-thunk'
 
 export default class Roote extends Component {
     render() {
-        let store = createStore(
-            mainReducer,
-            applyMiddleware(
-                thunkMiddleware // lets dispatch() functions
-            )
-        )
+
+        const store = createStore(mainReducer, composeWithDevTools(
+            applyMiddleware(thunkMiddleware),
+        ));
 
         store.dispatch(fetchGiphy('spongebob+happy'));
         store.dispatch(actions.newAdd());
