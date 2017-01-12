@@ -1,6 +1,7 @@
 import * as actions from '../../actions'
 import AppBar from 'material-ui/AppBar'
 import { connect } from 'react-redux'
+import { Translate } from 'react-redux-i18n'
 import Menu from 'material-ui/Menu'
 import MenuItem from 'material-ui/MenuItem'
 import MUIDrawer from 'material-ui/Drawer'
@@ -15,9 +16,15 @@ class Drawer extends React.Component {
             <MUIDrawer open={ this.props.isOpen } docked={ false } onRequestChange={ this.props.onDrawerToggle }>
                 <AppBar title="Math4Kids" onLeftIconButtonTouchTap={ this.props.onDrawerToggle }/>
                 <Menu  onItemTouchTap={this.props.onItemTouchTap}>
-                    <MenuItem value="add" containerElement={<Link to='/'/>}>Dodawanie</MenuItem>
-                    <MenuItem value="substract" containerElement={<Link to='substract'/>}>Odejmowanie</MenuItem>
-                    <MenuItem value="multiply" containerElement={<Link to='multiply'/>}>Mnożenie</MenuItem>
+                    <MenuItem value="add" containerElement={<Link to='/'/>}>
+                        <Translate value="app.nav.add"/>
+                    </MenuItem>
+                    <MenuItem value="substract" containerElement={<Link to='substract'/>}>
+                        <Translate value="app.nav.substract"/>
+                    </MenuItem>
+                    <MenuItem value="multiply" containerElement={<Link to='multiply'/>}>
+                        <Translate value="app.nav.multiply"/>
+                    </MenuItem>
                 </Menu>
             </MUIDrawer>
         );

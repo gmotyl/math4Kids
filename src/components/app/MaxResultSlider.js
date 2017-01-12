@@ -2,6 +2,7 @@ import * as actions from '../../actions/index'
 import { connect } from 'react-redux'
 import React, {Component} from 'react';
 import Slider from 'material-ui/Slider';
+import { Translate } from 'react-redux-i18n'
 
 const mapStateToProps = (state) => {
     return {
@@ -30,7 +31,7 @@ class MaxResultSlider extends Component {
                     onChange={this.props.handleSlider}
                     />
                 <p>
-                    <span>{'Max result: '}</span>
+                    <Translate value="app.labels.max_result"/>:
                     <span>{this.props.maxResult}</span>
                 </p>
             </div>

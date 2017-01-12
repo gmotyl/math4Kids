@@ -1,9 +1,10 @@
 import * as actions from '../actions'
+import { I18n } from 'react-redux-i18n'
 import { connect } from 'react-redux'
-import Dialog from 'material-ui/Dialog';
-import FlatButton from 'material-ui/FlatButton';
+import Dialog from 'material-ui/Dialog'
+import FlatButton from 'material-ui/FlatButton'
 import MaxResultSlider from '../components/app/MaxResultSlider'
-import React from 'react';
+import React from 'react'
 
 const mapStateToProps = (state) => {
     return {
@@ -32,7 +33,7 @@ class Settings extends React.Component {
         return (
             <div>
                 <Dialog
-                    title="Settings"
+                    title={ I18n.t('app.labels.settings') }
                     actions={dialogActions}
                     modal={false}
                     open={ this.props.isOpen }

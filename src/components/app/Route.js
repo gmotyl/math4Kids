@@ -1,24 +1,32 @@
 import * as actions from '../../actions'
 import AppComponent from './AppComponent'
 import AddForm from '../../forms/AddForm'
-import { composeWithDevTools } from 'redux-devtools-extension';
+import { composeWithDevTools } from 'redux-devtools-extension'
 import { createStore, applyMiddleware } from 'redux'
 import { fetchGiphy } from '../../actions/fetchGiphy'
 import mainReducer from '../../reducers/index'
 import MultiplyForm from '../../forms/MultiplyForm'
 import { Provider } from 'react-redux'
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import { Router, Route, IndexRoute, hashHistory } from 'react-router'
 import SubstractForm from '../../forms/SubstractForm'
 import thunkMiddleware from 'redux-thunk'
+import { loadTranslations, setLocale, syncTranslationWithStore} from 'react-redux-i18n'
+import { translationsObject } from '../../i18n/index.js'
 
 export default class Roote extends Component {
     render() {
 
-        const store = createStore(mainReducer, composeWithDevTools(
-            applyMiddleware(thunkMiddleware),
-        ));
+        const store = createStore(
+            mainReducer,
+            composeWithDevTools(
+                applyMiddleware(thunkMiddleware),
+            )
+        );
 
+        syncTranslationWithStore(store)
+        store.dispatch(loadTranslations(translationsObject));
+        store.dispatch(setLocale('en'));
         store.dispatch(fetchGiphy('spongebob+happy'));
         store.dispatch(actions.newAdd());
 
