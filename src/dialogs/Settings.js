@@ -2,6 +2,8 @@ import * as actions from '../actions'
 import { I18n } from 'react-redux-i18n'
 import { connect } from 'react-redux'
 import Dialog from 'material-ui/Dialog'
+import Flag from '../components/elements/Flag';
+import { Flex } from 'react-flex';
 import FlatButton from 'material-ui/FlatButton'
 import MaxResultSlider from '../components/app/MaxResultSlider'
 import React from 'react'
@@ -39,6 +41,10 @@ class Settings extends React.Component {
                     open={ this.props.isOpen }
                     onRequestClose={this.props.handleClose}
                 >
+                    <Flex row alignItems="center">
+                        <Flag code="gb"/>
+                        <Flag code="pl"/>
+                     </Flex>
                     <MaxResultSlider/>
                 </Dialog>
             </div>
